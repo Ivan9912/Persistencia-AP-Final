@@ -46,7 +46,7 @@ En particular, en esta entrega se solicita:
 1. Modelo de datos (DER físico) que brinde solución al dominio.
 2. Código con modelado de clases. El código debe estar subido a un repositorio de GitHub.
 
-Es necesario que el proyecto Java sea creado como un proyecto “Maven” para poder añadir algunas dependencias. Se recomienda la utilización de la dependencia de Lombok para facilitar la tarea repetitiva de generación de Setters y Getters de las clases.
+Es necesario que el proyecto Java sea creado como un proyecto “Maven” para poder añadir algunas dependencias. Se recomienda la utilización de la dependencia de [Lombok](https://projectlombok.org/) para facilitar la tarea repetitiva de generación de Setters y Getters de las clases.
 
 ***Entrega 2*** 
 En esta segunda iteración nos encargaremos de mapear, mediante anotaciones JPA, nuestras clases implementadas para poder persistir el modelo en una Base de Datos Relacional.
