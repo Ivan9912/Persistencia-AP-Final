@@ -1,6 +1,4 @@
-# Hibernate + Java
-
-- **Trabajo Práctico Integrador**
+# Hibernate + Java | Trabajo Práctico Integrador
 
 ## Sistema de Reporte de Incidentes
 ***Contexto General***
