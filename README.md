@@ -31,7 +31,8 @@ Cuando el técnico atiende y resuelve el incidente, lo debe marcar como “resue
 ***Consideraciones***
 + Cada tipo de problema particular puede ser solucionado por una o varias especialidades. - [ ]
 + Cada operador puede definir, optativamente, su tiempo estimado de resolución por defecto por tipo de problema; el cual tendrá que ser menor al tiempo máximo de resolución definido para el tipo de problema. - [ ]
-+ Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. - [ ]
++ Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. 
+- [ ]
 
 ***Metodología***
 Se propone una metodología de trabajo **iterativa** e **incremental**. Para esto, el TP se divide en tres entregas, las cuales se realizarán a través del envío del link al repositorio de trabajo por medio del Campus Virtual en la fecha estipulada por el Docente del curso.
