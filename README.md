@@ -53,6 +53,6 @@ Además, comenzaremos con la generación de los repositorios/servicios para que 
 En particular, en esta entrega se solicita:  
 1. Modelado de clases con Mapeo (anotaciones JPA) de entidades para que las mismas sean persistidas mediante el ORM Hibernate.  
 2. Repositorios/Servicios que den solución a los requerimientos planteados:  
-* Quién fue el técnico con más incidentes resueltos en los últimos N días.  
-* Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días.  
-* Quién fue el técnico que más rápido resolvió los incidentes.  
+1. Quién fue el técnico con más incidentes resueltos en los últimos N días.  
+2. Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días.  
+3. Quién fue el técnico que más rápido resolvió los incidentes.  
