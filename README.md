@@ -20,25 +20,25 @@ Al confirmarse el incidente, el sistema debe enviar una notificación al técnic
 Cuando el técnico atiende y resuelve el incidente, lo debe marcar como “resuelto”, indicando las consideraciones que crea necesarias. Cuando esto ocurra, el sistema debe enviar un email al cliente informándole que su incidente ya está solucionado.
 
 ***Otros Requerimientos***
-+ El sistema debe permitir al área de RRHH emitir diariamente reportes con los incidentes asignados a cada técnico y el estado de los mismos. [ ]
-+ El sistema debe permitir que el operador agregue “un colchón” de horas estimadas para la resolución del problema, si el mismo es considerado “complejo”. [ ]
-+ El sistema debe permitir el alta de incidentes que contengan un conjunto de problemas de un mismo servicio. Dichos problemas deben estar relacionados. [ ]
++ El sistema debe permitir al área de RRHH emitir diariamente reportes con los incidentes asignados a cada técnico y el estado de los mismos. [X]
++ El sistema debe permitir que el operador agregue “un colchón” de horas estimadas para la resolución del problema, si el mismo es considerado “complejo”. [X]
++ El sistema debe permitir el alta de incidentes que contengan un conjunto de problemas de un mismo servicio. Dichos problemas deben estar relacionados. [X]
 + El sistema debe dar la posibilidad de informar:
-- Quién fue el técnico con más incidentes resueltos en los últimos N días. [ ]
-- Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días. [ ]
-- Quién fue el técnico que más rápido resolvió los incidentes. [ ]
+- Quién fue el técnico con más incidentes resueltos en los últimos N días. [X]
+- Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días. [X]
+- Quién fue el técnico que más rápido resolvió los incidentes. [X]
 
 ***Consideraciones***
-+ Cada tipo de problema particular puede ser solucionado por una o varias especialidades. [ ]
-+ Cada operador puede definir, optativamente, su tiempo estimado de resolución por defecto por tipo de problema; el cual tendrá que ser menor al tiempo máximo de resolución definido para el tipo de problema. [ ]
-+ Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. [ ]
++ Cada tipo de problema particular puede ser solucionado por una o varias especialidades. [X]
++ Cada operador puede definir, optativamente, su tiempo estimado de resolución por defecto por tipo de problema; el cual tendrá que ser menor al tiempo máximo de resolución definido para el tipo de problema. [X]
++ Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. [X]
 
 ***Metodología***
 Se propone una metodología de trabajo **iterativa** e **incremental**. Para esto, el TP se divide en tres entregas, las cuales se realizarán a través del envío del link al repositorio de trabajo por medio del Campus Virtual en la fecha estipulada por el Docente del curso.
 En la última entrega (coincidente con la tercera) se deberá exponer el TP frente al curso, mostrando la solución generada y justificando las decisiones tomadas.
 
 ## Entregas
-***Entrega 1*** [ ]
+***Entrega 1*** [X]
 En esta primera iteración nos encargaremos de modelar, a nivel datos y objetos, una solución al dominio presentado. Además, comenzaremos con el proceso de codificación de la solución.
 
 En particular, en esta entrega se solicita:
@@ -47,7 +47,7 @@ En particular, en esta entrega se solicita:
 
 Es necesario que el proyecto Java sea creado como un proyecto “Maven” para poder añadir algunas dependencias. Se recomienda la utilización de la dependencia de Lombok para facilitar la tarea repetitiva de generación de Setters y Getters de las clases.
 
-***Entrega 2*** [ ]
+***Entrega 2*** [X]
 En esta segunda iteración nos encargaremos de mapear, mediante anotaciones JPA, nuestras clases implementadas para poder persistir el modelo en una Base de Datos Relacional.
 Además, comenzaremos con la generación de los repositorios/servicios para que brinden solución a algunos requerimientos planteados.
 
