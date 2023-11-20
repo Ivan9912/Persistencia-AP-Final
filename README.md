@@ -1,4 +1,4 @@
-# Hibernate + Java | Trabajo Práctico Integrador
+# Hibernate - Java | Trabajo Práctico Integrador
 
 ## Sistema de Reporte de Incidentes  
 ***Contexto General***  
@@ -18,18 +18,18 @@ Al confirmarse el incidente, el sistema debe enviar una notificación al técnic
 Cuando el técnico atiende y resuelve el incidente, lo debe marcar como “resuelto”, indicando las consideraciones que crea necesarias. Cuando esto ocurra, el sistema debe enviar un email al cliente informándole que su incidente ya está solucionado.  
 
 ***Otros Requerimientos***  
-+ El sistema debe permitir al área de RRHH emitir diariamente reportes con los incidentes asignados a cada técnico y el estado de los mismos. &#x2610;  
-+ El sistema debe permitir que el operador agregue “un colchón” de horas estimadas para la resolución del problema, si el mismo es considerado “complejo”. &#x2610;  
-+ El sistema debe permitir el alta de incidentes que contengan un conjunto de problemas de un mismo servicio. Dichos problemas deben estar relacionados. &#x2610;  
-+ El sistema debe dar la posibilidad de informar:  
-- Quién fue el técnico con más incidentes resueltos en los últimos N días. &#x2610;  
-- Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días. &#x2610;  
-- Quién fue el técnico que más rápido resolvió los incidentes. &#x2610;  
+- El sistema debe permitir al área de RRHH emitir diariamente reportes con los incidentes asignados a cada técnico y el estado de los mismos. &#x2610;  
+- El sistema debe permitir que el operador agregue “un colchón” de horas estimadas para la resolución del problema, si el mismo es considerado “complejo”. &#x2610;  
+- El sistema debe permitir el alta de incidentes que contengan un conjunto de problemas de un mismo servicio. Dichos problemas deben estar relacionados. &#x2610;  
+- El sistema debe dar la posibilidad de informar:  
+* Quién fue el técnico con más incidentes resueltos en los últimos N días. &#x2610;  
+* Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días. &#x2610;  
+* Quién fue el técnico que más rápido resolvió los incidentes. &#x2610;  
 
 ***Consideraciones***  
-+ Cada tipo de problema particular puede ser solucionado por una o varias especialidades. &#x2610;  
-+ Cada operador puede definir, optativamente, su tiempo estimado de resolución por defecto por tipo de problema; el cual tendrá que ser menor al tiempo máximo de resolución definido para el tipo de problema. &#x2610;  
-+ Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. &#x2610;  
+- Cada tipo de problema particular puede ser solucionado por una o varias especialidades. &#x2610;  
+- Cada operador puede definir, optativamente, su tiempo estimado de resolución por defecto por tipo de problema; el cual tendrá que ser menor al tiempo máximo de resolución definido para el tipo de problema. &#x2610;  
+- Cada técnico puede definir su medio preferido de notificación, los cuales pueden ser: Email o WhatsApp. No están definidas las bibliotecas que se utilizarán para realizar estas notificaciones. &#x2610;  
 <!-- &#x2611; &#x2610; -->
 
 ***Metodología***  
@@ -53,6 +53,6 @@ Además, comenzaremos con la generación de los repositorios/servicios para que 
 En particular, en esta entrega se solicita:  
 1. Modelado de clases con Mapeo (anotaciones JPA) de entidades para que las mismas sean persistidas mediante el ORM Hibernate.  
 2. Repositorios/Servicios que den solución a los requerimientos planteados:  
-- Quién fue el técnico con más incidentes resueltos en los últimos N días.  
-- Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días.  
-- Quién fue el técnico que más rápido resolvió los incidentes.  
+* Quién fue el técnico con más incidentes resueltos en los últimos N días.  
+* Quién fue el técnico con más incidentes resueltos de una determinada especialidad en los últimos N días.  
+* Quién fue el técnico que más rápido resolvió los incidentes.  
