@@ -39,8 +39,8 @@ Se propone una metodología de trabajo **iterativa** e **incremental**. Para est
 En la última entrega (coincidente con la tercera) se deberá exponer el TP frente al curso, mostrando la solución generada y justificando las decisiones tomadas.
 
 ## Entregas
-***Entrega 1*** &#x2610;
-En esta primera iteración nos encargaremos de modelar, a nivel datos y objetos, una solución al dominio presentado. Además, comenzaremos con el proceso de codificación de la solución.
+***Entrega 1*** 
+En esta primera iteración nos encargaremos de modelar, a nivel datos y objetos, una solución al dominio presentado. Además, comenzaremos con el proceso de codificación de la solución. &#x2610;
 
 En particular, en esta entrega se solicita:
 1. Modelo de datos (DER físico) que brinde solución al dominio.
@@ -48,9 +48,9 @@ En particular, en esta entrega se solicita:
 
 Es necesario que el proyecto Java sea creado como un proyecto “Maven” para poder añadir algunas dependencias. Se recomienda la utilización de la dependencia de Lombok para facilitar la tarea repetitiva de generación de Setters y Getters de las clases.
 
-***Entrega 2*** &#x2610;
+***Entrega 2*** 
 En esta segunda iteración nos encargaremos de mapear, mediante anotaciones JPA, nuestras clases implementadas para poder persistir el modelo en una Base de Datos Relacional.
-Además, comenzaremos con la generación de los repositorios/servicios para que brinden solución a algunos requerimientos planteados.
+Además, comenzaremos con la generación de los repositorios/servicios para que brinden solución a algunos requerimientos planteados. &#x2610;
 
 En particular, en esta entrega se solicita:
 1. Modelado de clases con Mapeo (anotaciones JPA) de entidades para que las mismas sean persistidas mediante el ORM Hibernate.
