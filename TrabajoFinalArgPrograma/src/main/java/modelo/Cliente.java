@@ -44,6 +44,4 @@ public class Cliente extends EntidadId{
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "iddatoscontacto")
     private DatosContacto datosContacto;//1 a 1
-    
-    
 }

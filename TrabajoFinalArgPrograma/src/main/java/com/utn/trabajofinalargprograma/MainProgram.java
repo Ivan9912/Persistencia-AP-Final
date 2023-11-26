@@ -18,7 +18,7 @@ public class MainProgram {
             //obtenerConexion();
             GestorCliente gCliente = new GestorCliente();
             
-            System.out.println("Ingrese el CUIT para identificar al Cliente");
+            System.out.println("Ingrese el CUIT para identificar al Cliente: ");
             Long cuit = new Scanner(System.in).nextLong();
             
             Cliente cliente = gCliente.getClienteXCUIT(cuit);
@@ -26,17 +26,20 @@ public class MainProgram {
             ClienteVista vistaCliente = new ClienteVista();        
             
             if(cliente == null){
-                System.out.println("El cliente solicitado NO EXISTE. \nProceda a cargar uno nuevo...");
+                System.out.println("El cliente solicitado NO EXISTE. \nProceda a cargar uno nuevo: ");
                 cliente = vistaCliente.cargarClienteNuevo();
                 gCliente.guardar(cliente);
             }else{
-                System.out.println("Este Cliente " + cliente.getRazonSocial() + " YA EXISTE. \nPara modificar ingrese \"U/u\". \nSi desea eliminar ingrese \"E/e\"");
+                System.out.println("Bienvenido: " + cliente.getRazonSocial() + "\nEsta es sú información cargada: \n" + "- Razón Social: " + cliente.getRazonSocial() + ".\n- CUIT: " + cliente.getCuit() + ".\n");
+                System.out.println("Para modificar ingrese \"U/u\". \nSi desea eliminar ingrese \"D/d\"\nSi desea salir presione \"E/e\"");
                 String accion = new Scanner(System.in).nextLine();
                 if(accion.toUpperCase().equals("u") || accion.toUpperCase().equals("U")){
                     cliente = vistaCliente.modificarCliente(cliente);
                     gCliente.guardar(cliente);
-                }else if(accion.toUpperCase().equals("e") || accion.toUpperCase().equals("E")){
+                }else if(accion.toUpperCase().equals("d") || accion.toUpperCase().equals("D")){
                     gCliente.eliminar(cliente);
+                }else if (accion.toUpperCase().equals("e") || accion.toUpperCase().equals("E")){
+                    System.exit(0);
                 }
             }
             

@@ -48,7 +48,7 @@ public class ConfigHibernate {
 		config.setProperty("hibernate.connection.username", "root");
 		config.setProperty("hibernate.connection.password", "");
 		config.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
-		config.setProperty("hibernate.show_sql", "true");
+		config.setProperty("hibernate.show_sql", "false"); // true para que muestre las consultas sql
 		config.setProperty("hibernate.hbm2ddl.auto", "update");
 		config.setProperty("hibernate.c3p0.min_size", "0");
 		config.setProperty("hibernate.c3p0.max_size", "7");

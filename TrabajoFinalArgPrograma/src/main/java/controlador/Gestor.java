@@ -36,7 +36,7 @@ public class Gestor {
             sesion.saveOrUpdate(o);
             if (guardar) {
                 tx.commit();
-                System.out.println("objeto persistido.");
+                System.out.println("Guardado con Exito..");
             }
         } catch (Exception e) {
             if (guardar) {
