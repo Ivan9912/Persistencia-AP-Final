@@ -17,24 +17,33 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
 @Entity
 @Table(name = "arg_prog_cliente")
-@Getter
-@Setter
-public class Cliente extends EntidadId {
-
+@Getter @Setter
+public class Cliente extends EntidadId{
+    
     @Column(length = 150)
     private String razonSocial;
+    
     @Column(nullable = false, unique = true)
     private long cuit;
-    @ManyToMany(fetch = FetchType.LAZY, targetEntity = Especialidad.class, cascade = CascadeType.ALL)
-    @JoinTable(name = "arg_prog_cliente_servicio", joinColumns = @JoinColumn(name = "idcliente"), inverseJoinColumns = @JoinColumn(name = "idservicio"))
-    private List<Servicio> servicios;// N a N
+    
+    @ManyToMany(fetch=FetchType.LAZY,
+    targetEntity=Especialidad.class,
+    cascade=CascadeType.ALL)
+    @JoinTable(
+    name="arg_prog_cliente_servicio", 
+            joinColumns=@JoinColumn(name="idcliente"),
+            inverseJoinColumns=@JoinColumn(name="idservicio")
+    )
+    private List<Servicio> servicios;//N a N
+    
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<ReporteIncidencia> reportesIncidencia;// 1 a N
-    @OneToOne
+    private List<ReporteIncidencia> reportesIncidencia;//1 a N
+    
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "iddatoscontacto")
-    private DatosContacto datosContacto;// 1 a 1
-
-};
+    private DatosContacto datosContacto;//1 a 1
+    
+    
+}

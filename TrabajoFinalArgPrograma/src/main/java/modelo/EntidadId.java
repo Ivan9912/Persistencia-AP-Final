@@ -14,10 +14,10 @@ import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 @Inheritance(strategy = InheritanceType.JOINED)
-public abstract class EntidadId implements Serializable {// representa la clave primaria
-
-    @Id // PK
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // PK autonumerica
+public abstract class EntidadId implements Serializable{//representa la clave primaria
+    
+    @Id//PK
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//PK autonumerica
     private long id;
 
     public long getId() {
@@ -27,4 +27,9 @@ public abstract class EntidadId implements Serializable {// representa la clave 
     public void setId(long id) {
         this.id = id;
     }
-};
+    
+    
+    
+    
+    
+}

@@ -11,7 +11,9 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "arg_prog_operador_mesa_ayuda")
-@Getter
-@Setter
+@Getter @Setter
 public class OperadorMesaAyuda extends Empleado {
-};
+    
+   
+    
+}

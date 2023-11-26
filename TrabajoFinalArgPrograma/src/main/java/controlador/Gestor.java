@@ -1,7 +1,7 @@
 package controlador;
 
 import java.util.List;
-//import org.hibernate.Hibernate;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -93,8 +93,7 @@ public class Gestor {
             String nombreAtributo, Object valorAtributo)
             throws Exception {
 
-        Query consulta = session
-                .createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
+        Query consulta = session.createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
         consulta.setParameter("valor", valorAtributo);
         List<Object> lista;
         try {
@@ -109,8 +108,7 @@ public class Gestor {
     public Object buscarObjetoPorAtributo(Session session, Class clase,
             String nombreAtributo, Object valorAtributo)
             throws Exception {
-        Query consulta = session
-                .createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
+        Query consulta = session.createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
         consulta.setParameter("valor", valorAtributo);
         List<Object> lista;
         try {
@@ -130,8 +128,7 @@ public class Gestor {
 
     public List buscarPorAtributo(Class clase, String nombreAtributo, Object valorAtributo) {
 
-        Query consulta = sesion
-                .createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
+        Query consulta = sesion.createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
         consulta.setParameter("valor", valorAtributo);
         List<Object> lista;
         try {
@@ -144,8 +141,7 @@ public class Gestor {
     }
 
     public Object buscarObjetoPorAtributo(Class clase, String nombreAtributo, Object valorAtributo) {
-        Query consulta = sesion
-                .createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
+        Query consulta = sesion.createQuery("from " + clase.getSimpleName() + " entidad where entidad." + nombreAtributo + " =:valor");
         consulta.setParameter("valor", valorAtributo);
         List<Object> lista;
         try {

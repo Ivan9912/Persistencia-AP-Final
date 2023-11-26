@@ -11,16 +11,14 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-
 @Entity
 @Table(name = "arg_prog_datos_contacto")
-@Getter
-@Setter
-public class DatosContacto extends EntidadId {
-
+@Getter @Setter
+public class DatosContacto  extends EntidadId{
+    
     private long telefono;
     private long celular;
     @Column(length = 75)
     private String email;
-
-};
+    
+}

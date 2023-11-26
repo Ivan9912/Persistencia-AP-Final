@@ -14,13 +14,13 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "arg_prog_especialidad")
-@Getter
-@Setter
-public class Especialidad extends EntidadId {
-
+@Getter @Setter
+public class Especialidad  extends EntidadId{
+    
     @Column(length = 175, nullable = false)
     private String denominacion;
-
+    
     @ManyToMany(mappedBy = "especialidades")
-    private List<Tecnico> tecnicos;// N a N
-};
+    private List<Tecnico> tecnicos;//N a N
+    
+}

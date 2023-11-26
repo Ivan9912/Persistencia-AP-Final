@@ -17,32 +17,38 @@ import lombok.Setter;
 
 @Entity
 @Table(name = "arg_prog_reporte_incidencia")
-@Getter
-@Setter
-public class ReporteIncidencia extends EntidadId {
-
+@Getter @Setter
+public class ReporteIncidencia  extends EntidadId {
+     
     @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date fechaAlta;
     @Column(nullable = false)
     private String descripcionProblema;
     @Column(nullable = false)
-    private String tipoProblema;// basico, intermedio, complejo
+    private String tipoProblema;//basico, intermedio, complejo
     @ManyToOne
     @JoinColumn(name = "idservicio")
-    private Servicio servicio;// N a 1
+    private Servicio servicio;//N a 1
     @ManyToOne
     @JoinColumn(name = "idoperador")
-    private OperadorMesaAyuda operador;// N a 1
+    private OperadorMesaAyuda operador;//N a 1
     @ManyToOne
     @JoinColumn(name = "idcliente", nullable = false)
-    private Cliente cliente;// N a 1
+    private Cliente cliente;//N a 1
     @ManyToOne
     @JoinColumn(name = "idtecnico", nullable = false)
-    private Tecnico tecnico;// N a 1
+    private Tecnico tecnico;//N a 1
     private int tiempoEstimadoResolucion;
     @Temporal(TemporalType.DATE)
     private Date fechaPosibleResolucion;
-    private String estado;// pendiente, en proceso, resuelto, anulado
+    private String estado;//pendiente, en proceso, resuelto, anulado
     private String observacionesTecnico;
-};
+    
+    
+    
+    
+    
+    
+    
+}
