@@ -1,11 +1,14 @@
 package com.utn.trabajofinalargprograma;
 
 import controlador.GestorCliente;
-import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.util.Scanner;
+
+import controlador.GestorEmpleado;
 import modelo.Cliente;
+import modelo.Empleado;
 import vista.ClienteVista;
+import vista.EmpleadoVista;
 
 public class MainProgram {
 
@@ -15,14 +18,17 @@ public class MainProgram {
     public static void main(String[] args) {
         Boolean stateAppClient = true;
         Boolean stateAppGeneral = true;
- 
+        Boolean stateAppTechnical = true;
+
         try {
-            menu_general:while(stateAppGeneral) {
-                System.out.println("Seleccione una opción: \n1- Cliente. \n2- Técnico. \n3- Empleado.\n4- Servicio.\n5- Salir.");
+            menu_general:
+            while (stateAppGeneral) {
+                System.out.println("Seleccione una opción: \n1- Cliente. \n2- Empleado. \n3- Técnico.\n4- Servicio.\n5- Salir.");
                 int infoSelect = new Scanner(System.in).nextInt();
-                switch (infoSelect){
+                switch (infoSelect) {
                     case 1:
-                        menu_client:while (stateAppClient) {
+                        menu_client:
+                        while (stateAppClient) {
                             GestorCliente gCliente = new GestorCliente();
 
                             System.out.println("Ingrese el CUIT para identificar al Cliente: ");
@@ -38,7 +44,7 @@ public class MainProgram {
                                 gCliente.guardar(cliente);
                                 continue menu_client;
                             } else {
-                                System.out.println("Bienvenido: " + cliente.getRazonSocial() + "\nEsta es sú información cargada: \n" + "- Razón Social: " + cliente.getRazonSocial() + ".\n- CUIT: " + cliente.getCuit() + ".\n- Email: " + cliente.getDatosContacto().getEmail() + ".\n");
+                                System.out.println("Bienvenido: " + cliente.getRazonSocial() + "\nEsta es sú información cargada: \n" + "- Razón Social: " + cliente.getRazonSocial() + ".\n- CUIT: " + cliente.getCuit() + ".\n- Email: " + cliente.getDatosContacto().getEmail() + ".\n- Celular: " + cliente.getDatosContacto().getCelular() + ".\n");
                                 System.out.println("Para modificar ingrese \"U\".\nSi desea eliminar ingrese \"D\".\nSi desea volver al menu presione \"V\".\nSi desea salir presione \"E\"");
                                 String accion = new Scanner(System.in).nextLine();
                                 if (accion.toUpperCase().equals("U")) {
@@ -64,13 +70,59 @@ public class MainProgram {
                                     }
                                 } else if (accion.toUpperCase().equals("E")) {
                                     break menu_general;
-                                }else if (accion.toUpperCase().equals("V")) {
+                                } else if (accion.toUpperCase().equals("V")) {
                                     continue menu_general;
                                 }
                             }
                         }
                     case 2:
-                        continue;
+                        menu_empleado:
+                        while (stateAppTechnical) {
+                            GestorEmpleado gEmpleado = new GestorEmpleado();
+
+                            System.out.println("Ingrese el Legajo para identificar al Empleado: ");
+                            Long legajo = new Scanner(System.in).nextLong();
+
+                            Empleado empleado = gEmpleado.getEmpleadoXLegajo(legajo);
+
+                            EmpleadoVista empleadoVista = new EmpleadoVista();
+                            if (empleado == null) {
+                                System.out.println("El Empleado solicitado NO EXISTE. \nProceda a cargar uno nuevo: ");
+                                empleado = empleadoVista.cargarEmpleadoNuevo();
+                                gEmpleado.guardar(empleado);
+                                continue menu_empleado;
+                            } else {
+                                System.out.println("Bienvenido: " + empleado.getApellido() + "\nEsta es sú información cargada: \n" + "- Apellido y Nombre: " + empleado.getApellido() + ", " + empleado.getNombre() + ".\n- Legajo: " + empleado.getLegajo() + ".\n- Email: " + empleado.getDatosContacto().getEmail() + ".\n- Celular: " + empleado.getDatosContacto().getCelular() + ".\n");
+                                System.out.println("Para modificar ingrese \"U\".\nSi desea eliminar ingrese \"D\".\nSi desea volver al menu presione \"V\".\nSi desea salir presione \"E\"");
+                                String accionEmpleado = new Scanner(System.in).nextLine();
+                                if (accionEmpleado.toUpperCase().equals("U")) {
+                                    empleado = empleadoVista.modificarEmpleado(empleado);
+                                    gEmpleado.guardar(empleado);
+                                    System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
+                                    String accionUpdate = new Scanner(System.in).nextLine();
+                                    if (accionUpdate.toUpperCase().equals("V")) {
+                                        continue menu_empleado;
+                                    } else if (accionUpdate.toUpperCase().equals("E")) {
+                                        System.out.println("Hasta Pronto " + empleado.getApellido() + "!");
+                                        break menu_empleado;
+                                    }
+                                } else if (accionEmpleado.toUpperCase().equals("D")) {
+                                    gEmpleado.eliminar(empleado);
+                                    System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
+                                    String accionDelete = new Scanner(System.in).nextLine();
+                                    if (accionDelete.toUpperCase().equals("V")) {
+                                        continue menu_empleado;
+                                    } else if (accionDelete.toUpperCase().equals("E")) {
+                                        System.out.println("Hasta Pronto " + empleado.getApellido() + "!");
+                                        break menu_general;
+                                    }
+                                } else if (accionEmpleado.toUpperCase().equals("E")) {
+                                    break menu_general;
+                                } else if (accionEmpleado.toUpperCase().equals("V")) {
+                                    continue menu_general;
+                                }
+                            }
+                        }
                     case 3:
                         continue;
                     case 4:
@@ -86,7 +138,7 @@ public class MainProgram {
             //System.out.println("BASE DE DATOS GENERADA");
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             System.exit(0);
         }
     }

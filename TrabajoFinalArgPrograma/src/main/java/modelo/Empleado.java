@@ -12,11 +12,11 @@ import lombok.Setter;
 
 @MappedSuperclass
 @Getter @Setter
-public abstract class Empleado  extends EntidadId{
+public class Empleado  extends EntidadId{
     
     protected String apellido;
     protected String nombre;
-    protected int legajo;
+    protected Long legajo;
     @OneToOne
     @JoinColumn(name = "iddatoscontacto")
     protected DatosContacto datosContacto;// 1 a 1
