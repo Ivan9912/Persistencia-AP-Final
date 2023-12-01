@@ -10,7 +10,6 @@ import modelo.DatosContacto;
 
 public class ClienteVista {
     
-    
     public Cliente cargarClienteNuevo(){
         
         Cliente cliente = new Cliente();
@@ -33,8 +32,7 @@ public class ClienteVista {
         return cliente;
     
     }
-    
-    
+
     public Cliente modificarCliente(Cliente cliente){
         
         System.out.println("Ingrese el CUIT del Cliente");
@@ -53,8 +51,5 @@ public class ClienteVista {
         cliente.setDatosContacto(datosContacto);
         
         return cliente;
-    
     }
-    
-    
 }

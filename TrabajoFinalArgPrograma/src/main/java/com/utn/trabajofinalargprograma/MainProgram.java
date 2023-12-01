@@ -4,11 +4,14 @@ import controlador.GestorCliente;
 
 import java.util.Scanner;
 
-import controlador.GestorEmpleado;
+//import controlador.GestorEspecialidad;
+import controlador.GestorEspecialidad;
+import controlador.GestorTecnico;
 import modelo.Cliente;
-import modelo.Empleado;
+import modelo.Tecnico;
 import vista.ClienteVista;
-import vista.EmpleadoVista;
+import vista.EspecialidadVista;
+import vista.TecnicoVista;
 
 public class MainProgram {
 
@@ -21,9 +24,14 @@ public class MainProgram {
         Boolean stateAppTechnical = true;
 
         try {
+            GestorEspecialidad addEspecialidad = new GestorEspecialidad();
+            if (addEspecialidad.getEscialidadesList() == 0) {
+                addEspecialidad.addEspecialidades();
+            }
+
             menu_general:
             while (stateAppGeneral) {
-                System.out.println("Seleccione una opción: \n1- Cliente. \n2- Empleado. \n3- Técnico.\n4- Servicio.\n5- Salir.");
+                System.out.println("Seleccione una opción para administrar: \n1- Clientes. \n2- Técnicos. \n3- Especialidades.\n4- Operadores.\n5- Servicios.\n6- Reporte de Incidencias.\n7- Reporte de Incidencias hecho por técnicos en el día.\n8- Reporte de Incidencias resueltos y desde que especialidad.\n9- Estadistica técnico más eficiente en resolucion de Incidentes reportados.\n0- Salir.");
                 int infoSelect = new Scanner(System.in).nextInt();
                 switch (infoSelect) {
                     case 1:
@@ -76,44 +84,49 @@ public class MainProgram {
                             }
                         }
                     case 2:
-                        menu_empleado:
+                        menu_technical:
                         while (stateAppTechnical) {
-                            GestorEmpleado gEmpleado = new GestorEmpleado();
+                            GestorTecnico gTecnico = new GestorTecnico();
 
-                            System.out.println("Ingrese el Legajo para identificar al Empleado: ");
+                            System.out.println("Ingrese el Legajo para identificar al Técnico: ");
                             Long legajo = new Scanner(System.in).nextLong();
 
-                            Empleado empleado = gEmpleado.getEmpleadoXLegajo(legajo);
+                            Tecnico tecnico = gTecnico.getTecnicoXLegajo(legajo);
 
-                            EmpleadoVista empleadoVista = new EmpleadoVista();
-                            if (empleado == null) {
-                                System.out.println("El Empleado solicitado NO EXISTE. \nProceda a cargar uno nuevo: ");
-                                empleado = empleadoVista.cargarEmpleadoNuevo();
-                                gEmpleado.guardar(empleado);
-                                continue menu_empleado;
+                            TecnicoVista tecnicoVista = new TecnicoVista();
+                            if (tecnico == null) {
+                                System.out.println("El Legajo solicitado NO EXISTE. \nProceda a cargar los datos: ");
+                                Tecnico tec = new Tecnico();
+                                tecnico = tecnicoVista.cargarTecnicoNuevo(tec, legajo); //ACAAAAA
+                                EspecialidadVista vistaEspecialidad = new EspecialidadVista();
+                                vistaEspecialidad.cargarNuevaEspecialidadTecnico(tecnico, gTecnico.getSesion());
+
+                                gTecnico.guardar(tecnico);
+                                continue menu_technical;
                             } else {
-                                System.out.println("Bienvenido: " + empleado.getApellido() + "\nEsta es sú información cargada: \n" + "- Apellido y Nombre: " + empleado.getApellido() + ", " + empleado.getNombre() + ".\n- Legajo: " + empleado.getLegajo() + ".\n- Email: " + empleado.getDatosContacto().getEmail() + ".\n- Celular: " + empleado.getDatosContacto().getCelular() + ".\n");
+                                System.out.println("Bienvenido: " + tecnico.getApellido() + "\nEsta es sú información cargada: \n" + "- Legajo: " + tecnico.getLegajo() + ".\n" + "- Apellido y Nombre: " + tecnico.getApellido() + ", " + tecnico.getNombre() +  ".\n- Email: " + tecnico.getDatosContacto().getEmail() + ".\n- Celular: " + tecnico.getDatosContacto().getCelular() + ".\n");
                                 System.out.println("Para modificar ingrese \"U\".\nSi desea eliminar ingrese \"D\".\nSi desea volver al menu presione \"V\".\nSi desea salir presione \"E\"");
                                 String accionEmpleado = new Scanner(System.in).nextLine();
                                 if (accionEmpleado.toUpperCase().equals("U")) {
-                                    empleado = empleadoVista.modificarEmpleado(empleado);
-                                    gEmpleado.guardar(empleado);
+                                    Tecnico tec = new Tecnico();
+                                    tecnico = tecnicoVista.modificarTecnico(tec, legajo);  //ACAAA
+                                    gTecnico.guardar(tecnico);
                                     System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
                                     String accionUpdate = new Scanner(System.in).nextLine();
                                     if (accionUpdate.toUpperCase().equals("V")) {
-                                        continue menu_empleado;
+                                        continue menu_technical;
                                     } else if (accionUpdate.toUpperCase().equals("E")) {
-                                        System.out.println("Hasta Pronto " + empleado.getApellido() + "!");
-                                        break menu_empleado;
+                                        System.out.println("Hasta Pronto " + tecnico.getApellido() + "!");
+                                        break menu_technical;
                                     }
                                 } else if (accionEmpleado.toUpperCase().equals("D")) {
-                                    gEmpleado.eliminar(empleado);
+                                    gTecnico.eliminar(tecnico);
                                     System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
                                     String accionDelete = new Scanner(System.in).nextLine();
                                     if (accionDelete.toUpperCase().equals("V")) {
-                                        continue menu_empleado;
+                                        continue menu_technical;
                                     } else if (accionDelete.toUpperCase().equals("E")) {
-                                        System.out.println("Hasta Pronto " + empleado.getApellido() + "!");
+                                        System.out.println("Hasta Pronto " + tecnico.getApellido() + "!");
                                         break menu_general;
                                     }
                                 } else if (accionEmpleado.toUpperCase().equals("E")) {
@@ -124,16 +137,35 @@ public class MainProgram {
                             }
                         }
                     case 3:
-                        continue;
+                        GestorEspecialidad gEspecialidad = new GestorEspecialidad();
+                        gEspecialidad.getEscialidadesList();
+                        System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
+                        String accionEspecialidad = new Scanner(System.in).nextLine();
+                        if (accionEspecialidad.toUpperCase().equals("V")) {
+                            continue menu_general;
+                        } else if (accionEspecialidad.toUpperCase().equals("E")) {
+                            System.out.println("Hasta Pronto!");
+                            break menu_general;
+                        }
+
                     case 4:
-                        continue;
+                        continue menu_general;
                     case 5:
+                        continue menu_general;
+                    case 6:
+                        continue menu_general;
+                    case 7:
+                        continue menu_general;
+                    case 8:
+                        continue menu_general;
+                    case 9:
+                        continue menu_general;
+                    case 0:
                         System.exit(0);
                     default:
                         System.out.println("Opción NO VALIDA!.");
                         continue menu_general;
                 }
-
             }
             //System.out.println("BASE DE DATOS GENERADA");
         } catch (Exception e) {

@@ -19,8 +19,8 @@ public class Especialidad  extends EntidadId{
     
     @Column(length = 175, nullable = false)
     private String denominacion;
-    
+
     @ManyToMany(mappedBy = "especialidades")
     private List<Tecnico> tecnicos;//N a N
-    
+
 }

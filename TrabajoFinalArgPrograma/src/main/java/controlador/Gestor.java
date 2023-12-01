@@ -16,8 +16,8 @@ public class Gestor {
     protected int activePage;
     protected String order = "asc";
     private static ConfigHibernate configHibernate;
-    protected List<String> packages;
-    protected List<Class> clases;
+    //protected List<String> packages;
+    //protected List<Class> clases;
     protected Session sesion;
 
     public Gestor() {

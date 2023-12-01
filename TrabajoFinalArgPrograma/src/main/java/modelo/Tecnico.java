@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -33,8 +34,11 @@ public class Tecnico extends Empleado{
             inverseJoinColumns=@JoinColumn(name="idespecialidad")
     )
     private List<Especialidad> especialidades;// N a N
-    
-    
-    
-    
+
+    public void addEspecialidad (Especialidad especialidad){
+        if (this.especialidades == null){
+            this.especialidades = new ArrayList<Especialidad>();
+        }
+        this.especialidades.add(especialidad);
+    }
 }

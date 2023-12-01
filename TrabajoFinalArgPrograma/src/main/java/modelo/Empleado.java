@@ -4,6 +4,7 @@
  */
 package modelo;
 
+import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.OneToOne;
@@ -12,13 +13,13 @@ import lombok.Setter;
 
 @MappedSuperclass
 @Getter @Setter
-public class Empleado  extends EntidadId{
+public abstract class Empleado  extends EntidadId{
     
     protected String apellido;
     protected String nombre;
+    @Column(unique = true)
     protected Long legajo;
     @OneToOne
     @JoinColumn(name = "iddatoscontacto")
     protected DatosContacto datosContacto;// 1 a 1
-    
 }
