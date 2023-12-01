@@ -25,7 +25,7 @@ public class MainProgram {
 
         try {
             GestorEspecialidad addEspecialidad = new GestorEspecialidad();
-            if (addEspecialidad.getEscialidadesList() == 0) {
+            if (addEspecialidad.getListEspecialidades() == 0) {
                 addEspecialidad.addEspecialidades();
             }
 
@@ -138,7 +138,7 @@ public class MainProgram {
                         }
                     case 3:
                         GestorEspecialidad gEspecialidad = new GestorEspecialidad();
-                        gEspecialidad.getEscialidadesList();
+                        gEspecialidad.getEspecialidadesList();
                         System.out.println("Para Volver al menú ingrese \"V\". \nSi desea salir definitivamente ingrese \"E\".\n");
                         String accionEspecialidad = new Scanner(System.in).nextLine();
                         if (accionEspecialidad.toUpperCase().equals("V")) {
